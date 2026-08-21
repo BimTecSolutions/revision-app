@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>O/L Revision — Get the App</title>
+<meta name="description" content="O/L Revision — MCQs, short notes and quizzes for Grade 10 &amp; 11 students in Sri Lanka. Get it on Google Play.">
+<meta name="theme-color" content="#101a30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0c1426;
+    --navy-900:#101a30;
+    --navy-800:#182642;
+    --navy-700:#22345a;
+    --gold:#f5b324;
+    --gold-soft:#f7c554;
+    --teal:#4ed9c0;
+    --ink:#f5f3ec;
+    --ink-muted:#a7b1c9;
+    --ring-space: 999px;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+
+  body{
+    margin:0;
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(78,217,192,0.10), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(245,179,36,0.12), transparent 45%),
+      linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 55%, #0a1120 100%);
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    cursor:pointer;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* faint subject-glyph field, grounding the page in what the app actually covers */
+  .glyphs{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    color:var(--navy-700);
+    opacity:0.55;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    user-select:none;
+  }
+  .glyphs span{
+    position:absolute;
+    font-size:2rem;
+  }
+  .glyphs span:nth-child(1){ top:8%;  left:9%;  font-size:2.6rem; transform:rotate(-8deg); }
+  .glyphs span:nth-child(2){ top:16%; right:10%; font-size:1.6rem; transform:rotate(10deg); }
+  .glyphs span:nth-child(3){ top:42%; left:5%;  font-size:1.4rem; transform:rotate(6deg); }
+  .glyphs span:nth-child(4){ bottom:26%; right:7%; font-size:2.2rem; transform:rotate(-6deg); }
+  .glyphs span:nth-child(5){ bottom:10%; left:14%; font-size:1.8rem; transform:rotate(4deg); }
+  .glyphs span:nth-child(6){ top:70%; right:22%; font-size:1.3rem; transform:rotate(-12deg); }
+
+  main{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:26rem;
+    margin:0 auto;
+    padding:2.75rem 1.75rem 2.5rem;
+    text-align:center;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:1.6rem;
+  }
+  .eyebrow::before,
+  .eyebrow::after{
+    content:"";
+    width:1.25rem;
+    height:1px;
+    background:var(--teal);
+    opacity:0.6;
+  }
+
+  /* signature element: a ruled "ready" badge — reads as a marked exam paper */
+  .badge{
+    position:relative;
+    width:7.5rem;
+    height:7.5rem;
+    margin:0 auto 1.9rem;
+    border-radius:50%;
+    background:
+      conic-gradient(var(--gold) 0deg 300deg, rgba(255,255,255,0.08) 300deg 360deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: spin-in 1.1s cubic-bezier(.22,1,.36,1) both;
+  }
+  .badge::before{
+    content:"";
+    position:absolute;
+    inset:0.55rem;
+    border-radius:50%;
+    background: var(--navy-900);
+  }
+  .badge svg{
+    position:relative;
+    width:2.6rem;
+    height:2.6rem;
+    color:var(--gold-soft);
+  }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.7rem, 7vw, 2.15rem);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin:0 0 0.85rem;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--gold-soft);
+  }
+
+  .sinhala{
+    font-size:0.95rem;
+    color:var(--ink-muted);
+    margin:0 0 0.9rem;
+  }
+
+  p.lede{
+    font-size:0.98rem;
+    line-height:1.55;
+    color:var(--ink-muted);
+    margin:0 0 2.2rem;
+  }
+
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    background:var(--gold);
+    color:var(--navy-950);
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    padding:0.95rem 1.6rem;
+    border-radius:var(--ring-space);
+    text-decoration:none;
+    box-shadow: 0 12px 30px -10px rgba(245,179,36,0.55);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  .cta svg{ width:1.15rem; height:1.15rem; flex-shrink:0; }
+
+  .hint{
+    margin-top:1.6rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    color:var(--ink-muted);
+    opacity:0.75;
+  }
+
+  .subjects{
+    margin-top:2.4rem;
+    padding-top:1.6rem;
+    border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0.5rem 0.7rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.03em;
+    color:var(--ink-muted);
+  }
+  .subjects span{ opacity:0.8; }
+  .subjects span::after{ content:"·"; margin-left:0.7rem; color:var(--navy-700); }
+  .subjects span:last-child::after{ content:""; }
+
+  @keyframes spin-in{
+    from{ transform:rotate(-70deg) scale(0.7); opacity:0; }
+    to{ transform:rotate(0deg) scale(1); opacity:1; }
+  }
+  @keyframes pulse{
+    0%, 100%{ box-shadow: 0 12px 30px -10px rgba(245,179,36,0.55); }
+    50%{ box-shadow: 0 12px 34px -6px rgba(245,179,36,0.8); }
+  }
+
+  /* brief tap-feedback ripple from the point of contact */
+  .ripple{
+    position:fixed;
+    z-index:5;
+    width:1px; height:1px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(245,179,36,0.45), transparent 70%);
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    animation: ripple-out 0.6s ease-out forwards;
+  }
+  @keyframes ripple-out{
+    from{ width:1px; height:1px; opacity:0.9; }
+    to{ width:38rem; height:38rem; opacity:0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .badge, .cta{ animation:none; }
+    .ripple{ display:none; }
+  }
+
+  @media (max-width:340px){
+    main{ padding:2.2rem 1.25rem 2rem; }
+    .badge{ width:6.4rem; height:6.4rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="glyphs" aria-hidden="true">
+    <span>∑</span>
+    <span>අ</span>
+    <span>&#9883;</span>
+    <span>%</span>
+    <span>ක</span>
+    <span>?</span>
+  </div>
+
+  <main>
+    <p class="eyebrow">O/L Revision · Grade 10 &amp; 11</p>
+
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5"/>
+      </svg>
+    </div>
+
+    <h1>Revise smarter for your <em>O/L exam</em></h1>
+    <p class="sinhala">සාමාන්‍ය පෙළ විභාගයට හොඳින් සූදානම් වන්න</p>
+
+    <p class="lede">
+      Short notes and MCQ quizzes for every Grade 10 &amp; 11 subject, built for
+      quick revision anywhere — on the bus, between classes, before the exam.
+    </p>
+
+    <a class="cta" href="https://play.google.com/store/apps/details?id=xyz.appfactory.olmodelpaper" id="storeLink">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5V3.5c0-.6.3-1.1.8-1.4L14 12 3.8 21.9c-.5-.3-.8-.8-.8-1.4Zm12-7.6 2.9-2.9 3.9 2.2c.8.5.8 1.6 0 2.1l-3.9 2.2-2.9-2.9Zm-1.4-1.4L4.4 2.3l9.2 5.2-2 4Zm0 2.8 2 4-9.2 5.2 7.2-9.2Z"/></svg>
+      Get it on Google Play
+    </a>
+
+    <p class="hint">tap anywhere on this page to open the app</p>
+
+    <div class="subjects" aria-hidden="true">
+      <span>Science</span><span>Maths</span><span>Sinhala</span><span>History</span><span>Buddhism</span>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      var url = "https://play.google.com/store/apps/details?id=xyz.appfactory.olmodelpaper";
+
+      function showRipple(x, y){
+        var r = document.createElement('div');
+        r.className = 'ripple';
+        r.style.left = x + 'px';
+        r.style.top = y + 'px';
+        document.body.appendChild(r);
+        setTimeout(function(){ r.remove(); }, 650);
+      }
+
+      document.body.addEventListener('click', function(e){
+        // let the visible link/button behave natively; avoid double-navigation
+        if (e.target.closest('#storeLink')) return;
+
+        showRipple(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2);
+        setTimeout(function(){
+          window.location.href = url;
+        }, 180);
+      });
+    })();
+  </script>
+
+</body>
+</html>
