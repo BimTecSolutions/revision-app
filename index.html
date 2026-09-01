@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="si">
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -10,51 +11,52 @@ content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cove
 
 >
 
-<title>O/L Revision App — Grade 10 & 11 Sri Lanka</title>
+<title>OL Revision App | සාමාන්‍ය පෙළ විභාගයට සූදානම් වන්න</title>
 
 <meta
 name="description"
-content="O/L Revision App for Sri Lankan Grade 10 and Grade 11 students. Practice MCQs, quizzes and revision questions for your GCE Ordinary Level examination."
+content="සාමාන්‍ය පෙළ විභාගයට සූදානම් වන 10 සහ 11 ශ්‍රේණි සිසුන් සඳහා ප්‍රශ්න, පිළිතුරු, MCQ සහ Quiz ඇතුළත් OL Revision App."
 
 >
 
-<meta name="theme-color" content="#f7f9fc">
+<meta name="theme-color" content="#f8fbff">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap"
   rel="stylesheet"
 >
 
 <style>
 
 :root{
+
   --primary:#2563eb;
   --primary-dark:#1d4ed8;
-  --primary-light:#dbeafe;
+  --primary-soft:#eaf2ff;
 
   --purple:#7c3aed;
   --green:#10b981;
 
-  --background:#f7f9fc;
+  --background:#f8fbff;
   --white:#ffffff;
 
   --text:#172033;
   --text-muted:#64748b;
 
-  --border:#e5eaf2;
+  --border:#e3eaf5;
 
-  --shadow:
-    0 20px 60px rgba(37,99,235,0.12);
+  --radius:24px;
 
-  --radius:28px;
 }
+
 
 *{
   box-sizing:border-box;
 }
+
 
 html,
 body{
@@ -62,26 +64,29 @@ body{
   min-height:100%;
 }
 
+
 body{
+
   min-height:100dvh;
 
   font-family:
-    "Inter",
     "Noto Sans Sinhala",
+    "Inter",
     system-ui,
     sans-serif;
 
   background:
+
     radial-gradient(
-      circle at 5% 10%,
-      rgba(37,99,235,0.10),
+      circle at 0% 5%,
+      rgba(37,99,235,0.12),
       transparent 30%
     ),
 
     radial-gradient(
-      circle at 95% 85%,
+      circle at 100% 95%,
       rgba(124,58,237,0.10),
-      transparent 30%
+      transparent 35%
     ),
 
     var(--background);
@@ -90,334 +95,174 @@ body{
 
   overflow-x:hidden;
 
-  cursor:pointer;
-
   -webkit-tap-highlight-color:transparent;
-}
-
-
-/* =========================
-   BACKGROUND DECORATIONS
-========================= */
-
-.shape{
-  position:fixed;
-
-  border-radius:50%;
-
-  pointer-events:none;
-
-  z-index:0;
-}
-
-.shape.one{
-
-  width:300px;
-  height:300px;
-
-  top:-130px;
-  left:-100px;
-
-  background:rgba(37,99,235,0.08);
-
-}
-
-.shape.two{
-
-  width:250px;
-  height:250px;
-
-  bottom:-100px;
-  right:-80px;
-
-  background:rgba(124,58,237,0.08);
 
 }
 
 
 /* =========================
-   MAIN CONTAINER
+   PAGE
 ========================= */
 
 main{
 
-  position:relative;
+  width:100%;
 
-  z-index:1;
-
-  max-width:1050px;
+  max-width:520px;
 
   margin:auto;
 
-  min-height:100dvh;
+  padding:
 
-  display:flex;
+    28px
+    20px
+    45px;
 
-  align-items:center;
-
-  padding:45px 24px;
-
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-  width:100%;
-
-  display:grid;
-
-  grid-template-columns:
-    1.1fr
-    0.9fr;
-
-  align-items:center;
-
-  gap:70px;
+  text-align:center;
 
 }
 
 
 /* =========================
-   LEFT CONTENT
+   LOGO / SMALL HEADER
 ========================= */
 
-.badge{
+.app-name{
 
   display:inline-flex;
 
   align-items:center;
 
-  gap:8px;
-
-  background:var(--primary-light);
-
-  color:var(--primary-dark);
-
-  font-size:13px;
-
-  font-weight:700;
-
-  padding:9px 15px;
-
-  border-radius:999px;
-
-  margin-bottom:20px;
-
-}
-
-.badge-dot{
-
-  width:8px;
-
-  height:8px;
-
-  border-radius:50%;
-
-  background:var(--green);
-
-}
-
-
-h1{
-
-  margin:0 0 20px;
-
-  font-size:clamp(
-    2.2rem,
-    5vw,
-    4.3rem
-  );
-
-  line-height:1.08;
-
-  letter-spacing:-0.04em;
-
-}
-
-h1 span{
-
-  color:var(--primary);
-
-}
-
-.sinhala-title{
-
-  font-family:
-    "Noto Sans Sinhala",
-    sans-serif;
-
-  font-size:1rem;
-
-  line-height:1.8;
-
-  color:var(--primary-dark);
-
-  font-weight:600;
-
-  margin-bottom:18px;
-
-}
-
-.description{
-
-  max-width:580px;
-
-  font-family:
-    "Noto Sans Sinhala",
-    sans-serif;
-
-  font-size:0.95rem;
-
-  line-height:1.9;
-
-  color:var(--text-muted);
-
-  margin-bottom:28px;
-
-}
-
-
-/* =========================
-   FEATURES
-========================= */
-
-.features{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
   gap:10px;
-
-  margin-bottom:30px;
-
-}
-
-.feature{
 
   background:white;
 
   border:1px solid var(--border);
 
-  padding:9px 13px;
+  padding:
+
+    8px
+    15px;
 
   border-radius:999px;
 
+  font-family:"Inter", sans-serif;
+
   font-size:13px;
-
-  font-weight:600;
-
-  color:#475569;
-
-}
-
-
-/* =========================
-   GOOGLE PLAY BUTTON
-========================= */
-
-.cta{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  text-decoration:none;
-
-  background:var(--primary);
-
-  color:white;
-
-  padding:
-    16px
-    24px;
-
-  border-radius:16px;
 
   font-weight:700;
 
-  font-size:16px;
+  color:var(--primary);
+
+  margin-bottom:28px;
 
   box-shadow:
-    0 15px 30px
-    rgba(37,99,235,0.25);
-
-  transition:
-    transform .2s ease,
-    background .2s ease,
-    box-shadow .2s ease;
-
-}
-
-.cta:hover{
-
-  background:var(--primary-dark);
-
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 20px 40px
-    rgba(37,99,235,0.32);
-
-}
-
-.play-icon{
-
-  width:24px;
-
-  height:24px;
-
-  flex-shrink:0;
+    0 8px 25px
+    rgba(15,23,42,0.05);
 
 }
 
 
-.hint{
+.status-dot{
 
-  margin-top:16px;
+  width:9px;
 
-  font-size:12px;
+  height:9px;
 
-  color:#94a3b8;
+  background:var(--green);
+
+  border-radius:50%;
 
 }
 
 
 /* =========================
-   PHONE SECTION
+   TITLE
 ========================= */
 
-.phone-wrapper{
+h1{
+
+  margin:
+
+    0
+    auto
+    16px;
+
+  max-width:460px;
+
+  font-size:
+
+    clamp(
+      2rem,
+      9vw,
+      3rem
+    );
+
+  line-height:1.35;
+
+  font-weight:800;
+
+  letter-spacing:-0.025em;
+
+}
+
+
+.highlight{
+
+  color:var(--primary);
+
+}
+
+
+.subtitle{
+
+  margin:
+
+    0
+    auto
+    25px;
+
+  max-width:450px;
+
+  font-size:
+
+    1.02rem;
+
+  line-height:1.9;
+
+  color:var(--text-muted);
+
+}
+
+
+/* =========================
+   APP SCREENSHOT
+========================= */
+
+.phone-area{
+
+  position:relative;
 
   display:flex;
 
   justify-content:center;
 
-  align-items:center;
+  margin:
 
-  position:relative;
+    10px
+    auto
+    30px;
 
 }
 
 
-/* glow */
-
-.phone-wrapper::before{
-
-  content:"";
+.phone-glow{
 
   position:absolute;
 
-  width:350px;
+  width:310px;
 
-  height:350px;
+  height:310px;
 
   border-radius:50%;
 
@@ -426,61 +271,51 @@ h1 span{
     radial-gradient(
       circle,
       rgba(37,99,235,0.16),
-      transparent 65%
+      transparent 70%
     );
 
-  z-index:-1;
+  top:40px;
+
+  z-index:0;
 
 }
 
-
-/* PHONE */
 
 .phone{
 
-  width:260px;
+  position:relative;
 
-  padding:9px;
+  z-index:1;
 
-  border-radius:38px;
+  width:min(
+    78vw,
+    285px
+  );
 
-  background:#111827;
+  background:#101828;
+
+  padding:8px;
+
+  border-radius:35px;
 
   box-shadow:
 
-    0 30px 70px
-    rgba(15,23,42,0.28);
-
-  transform:
-    rotate(3deg);
-
-  transition:
-    transform .3s ease;
+    0 25px 55px
+    rgba(15,23,42,0.25);
 
 }
 
-.phone:hover{
-
-  transform:
-    rotate(0deg)
-    translateY(-6px);
-
-}
 
 .phone-screen{
 
   overflow:hidden;
 
-  border-radius:30px;
+  border-radius:28px;
 
   background:white;
 
-  position:relative;
-
 }
 
-
-/* APP SCREENSHOT */
 
 .phone-screen img{
 
@@ -491,11 +326,107 @@ h1 span{
 }
 
 
-/* fallback if image missing */
+/* =========================
+   INFO BOX
+========================= */
 
-.app-placeholder{
+.info-box{
 
-  min-height:510px;
+  background:white;
+
+  border:
+
+    1px solid
+    var(--border);
+
+  border-radius:var(--radius);
+
+  padding:
+
+    22px
+    18px;
+
+  margin-bottom:22px;
+
+  box-shadow:
+
+    0 12px 35px
+    rgba(15,23,42,0.05);
+
+}
+
+
+.info-box h2{
+
+  margin:
+
+    0
+    0
+    10px;
+
+  font-size:
+
+    1.15rem;
+
+  font-weight:700;
+
+}
+
+
+.info-box p{
+
+  margin:0;
+
+  color:var(--text-muted);
+
+  font-size:.94rem;
+
+  line-height:1.9;
+
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+
+  display:grid;
+
+  grid-template-columns:
+
+    repeat(
+      2,
+      1fr
+    );
+
+  gap:12px;
+
+  margin:
+
+    0
+    0
+    28px;
+
+}
+
+
+.feature{
+
+  background:white;
+
+  border:
+
+    1px solid
+    var(--border);
+
+  border-radius:18px;
+
+  padding:
+
+    18px
+    10px;
 
   display:flex;
 
@@ -503,33 +434,42 @@ h1 span{
 
   align-items:center;
 
-  justify-content:center;
+  gap:8px;
 
-  padding:30px;
+  font-size:.83rem;
 
-  text-align:center;
+  font-weight:600;
 
-  background:
-
-    linear-gradient(
-      160deg,
-      #eff6ff,
-      #ffffff
-    );
+  color:#475569;
 
 }
 
-.app-placeholder .logo{
 
-  width:70px;
+.feature-icon{
 
-  height:70px;
+  font-size:25px;
 
-  border-radius:20px;
+}
 
-  background:var(--primary);
 
-  color:white;
+.feature strong{
+
+  color:var(--text);
+
+  font-family:"Inter", sans-serif;
+
+  font-size:1rem;
+
+}
+
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+.cta{
+
+  width:100%;
 
   display:flex;
 
@@ -537,161 +477,232 @@ h1 span{
 
   justify-content:center;
 
-  font-size:30px;
+  gap:12px;
 
-  font-weight:800;
+  background:
 
-  margin-bottom:18px;
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
 
-}
+  color:white;
 
-.app-placeholder h3{
+  text-decoration:none;
 
-  margin:0 0 8px;
+  border-radius:18px;
 
-  font-size:20px;
+  padding:
 
-}
+    18px
+    20px;
 
-.app-placeholder p{
-
-  margin:0;
-
-  color:var(--text-muted);
-
-  font-size:13px;
-
-}
-
-
-/* =========================
-   FLOATING CARDS
-========================= */
-
-.floating-card{
-
-  position:absolute;
-
-  background:white;
-
-  border:1px solid var(--border);
-
-  padding:12px 15px;
-
-  border-radius:16px;
-
-  box-shadow:
-    0 12px 30px
-    rgba(15,23,42,0.08);
-
-  font-size:13px;
+  font-size:1.05rem;
 
   font-weight:700;
 
+  box-shadow:
+
+    0 18px 35px
+    rgba(37,99,235,0.28);
+
+  transition:
+
+    transform .2s ease;
+
 }
 
-.card-one{
 
-  top:15%;
+.cta:active{
 
-  left:-35px;
+  transform:
+    scale(.97);
 
 }
 
-.card-two{
 
-  bottom:15%;
+.play-icon{
 
-  right:-45px;
+  width:25px;
+
+  height:25px;
+
+  flex-shrink:0;
 
 }
 
 
 /* =========================
-   MOBILE
+   FREE TEXT
 ========================= */
 
-@media(max-width:800px){
+.free-text{
 
-  main{
+  display:flex;
 
-    padding:
-      40px
-      22px;
+  align-items:center;
 
-    align-items:flex-start;
+  justify-content:center;
 
-  }
+  gap:7px;
 
-  .hero{
+  margin-top:16px;
 
-    grid-template-columns:1fr;
+  color:#64748b;
 
-    gap:50px;
-
-    text-align:center;
-
-  }
-
-  .description{
-
-    margin-left:auto;
-
-    margin-right:auto;
-
-  }
-
-  .features{
-
-    justify-content:center;
-
-  }
-
-  .phone{
-
-    width:245px;
-
-    transform:none;
-
-  }
-
-  .phone:hover{
-
-    transform:
-      translateY(-4px);
-
-  }
-
-  .floating-card{
-
-    display:none;
-
-  }
-
-  .phone-wrapper::before{
-
-    width:300px;
-
-    height:300px;
-
-  }
+  font-size:.82rem;
 
 }
 
 
-@media(max-width:380px){
+.free-check{
 
-  h1{
+  color:var(--green);
 
-    font-size:2.1rem;
+  font-weight:bold;
+
+}
+
+
+/* =========================
+   SUBJECTS
+========================= */
+
+.subjects{
+
+  margin-top:30px;
+
+  padding-top:25px;
+
+  border-top:
+
+    1px solid
+    var(--border);
+
+}
+
+
+.subjects-title{
+
+  font-size:.9rem;
+
+  font-weight:700;
+
+  margin-bottom:14px;
+
+}
+
+
+.subject-list{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:8px;
+
+}
+
+
+.subject{
+
+  background:var(--primary-soft);
+
+  color:var(--primary-dark);
+
+  padding:
+
+    7px
+    12px;
+
+  border-radius:999px;
+
+  font-size:.75rem;
+
+  font-weight:600;
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:700px){
+
+  main{
+
+    max-width:1000px;
+
+    padding:
+
+      60px
+      40px;
 
   }
 
-  .cta{
 
-    width:100%;
+  .hero{
 
-    justify-content:center;
+    display:grid;
+
+    grid-template-columns:
+
+      1fr
+      1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+    text-align:left;
+
+  }
+
+
+  .app-name{
+
+    margin-bottom:25px;
+
+  }
+
+
+  h1{
+
+    margin-left:0;
+
+    font-size:3.5rem;
+
+  }
+
+
+  .subtitle{
+
+    margin-left:0;
+
+  }
+
+
+  .features{
+
+    margin-top:25px;
+
+  }
+
+
+  .subjects{
+
+    margin-top:45px;
+
+  }
+
+
+  .phone-area{
+
+    margin:0;
 
   }
 
@@ -703,84 +714,135 @@ h1 span{
 
 <body>
 
-<div class="shape one"></div>
-
-<div class="shape two"></div>
-
 <main>
+
+<!-- APP NAME -->
+
+<div class="app-name">
+
+<span class="status-dot"></span>
+
+OL REVISION APP
+
+</div>
 
 <div class="hero">
 
-<!-- =====================
-     TEXT CONTENT
-===================== -->
+<!-- ======================
+     TEXT SECTION
+====================== -->
 
 <section>
 
-<div class="badge">
-
-<span class="badge-dot"></span>
-
-O/L REVISION APP · GRADE 10 & 11
-
-</div>
-
 <h1>
 
-Prepare smarter for your
-
-<span>O/L Exam</span>
+ඔබේ <span class="highlight">සාමාන්‍ය පෙළ</span>
+විභාගයට හොඳින් සූදානම් වන්න
 
 </h1>
 
-<div class="sinhala-title">
+<p class="subtitle">
 
-සාමාන්‍ය පෙළ විභාගයට හොඳින් සූදානම් වන්න
-
-</div>
-
-<p class="description">
-
-10 සහ 11 ශ්‍රේණිවල සිසුන් සඳහා විභාගයට සූදානම් වීමට
-ප්‍රශ්න, පිළිතුරු, MCQ සහ Quiz ඇතුළත් කර ඇත.
-
-ඔබගේ දැනුම පරීක්ෂා කරමින් විභාගයට වඩාත් හොඳින්
-සූදානම් වීමට O/L Revision App එක භාවිතා කරන්න.
-
-සම්පූර්ණයෙන්ම නොමිලයේ භාවිතා කළ හැක.
+10 සහ 11 ශ්‍රේණිවල සිසුන් සඳහා
+ප්‍රශ්න, පිළිතුරු, MCQ සහ Quiz මඟින්
+විභාගයට වඩාත් හොඳින් සූදානම් වන්න.
 
 </p>
 
 <div class="features">
 
 <div class="feature">
-📚 5000+ Questions
+
+<div class="feature-icon">
+📚
+</div>
+
+<strong>
+5000+
+</strong>
+
+ප්‍රශ්න සහ පිළිතුරු
+
 </div>
 
 <div class="feature">
-📝 MCQ & Quizzes
+
+<div class="feature-icon">
+📝
+</div>
+
+<strong>
+MCQ
+</strong>
+
+ඔබේ දැනුම පරීක්ෂා කරන්න
+
 </div>
 
 <div class="feature">
-🎓 Grade 10 & 11
+
+<div class="feature-icon">
+🎓
+</div>
+
+<strong>
+10 & 11
+</strong>
+
+ශ්‍රේණි සඳහා
+
 </div>
 
 <div class="feature">
-🇱🇰 Sri Lankan O/L
+
+<div class="feature-icon">
+🧠
 </div>
+
+<strong>
+Quiz
+</strong>
+
+පුහුණු වන්න
+
+</div>
+
+</div>
+
+<div class="info-box">
+
+<h2>
+
+📖 OL Revision App සමඟ ඉගෙන ගන්න
+
+</h2>
+
+<p>
+
+සාමාන්‍ය පෙළ විභාගයට සූදානම් වන සිසුන්ට
+තම දැනුම පරීක්ෂා කරමින් ප්‍රශ්නවලට පිළිතුරු ලබාදී
+වඩාත් හොඳින් පුහුණු වීමට මෙම App එක භාවිතා කළ හැක.
+
+</p>
 
 </div>
 
 <a
+
 class="cta"
+
 id="storeLink"
+
 href="https://play.google.com/store/apps/details?id=xyz.appfactory.olmodelpaper"
 
 >
 
 <svg
+
 class="play-icon"
+
 viewBox="0 0 24 24"
+
 fill="currentColor"
 
 >
@@ -789,81 +851,51 @@ fill="currentColor"
 
 </svg>
 
-Download on Google Play
+Google Play වෙතින් ලබාගන්න
 
 </a>
 
-<p class="hint">
+<div class="free-text">
 
-Tap anywhere to open the app on Google Play
+<span class="free-check">
 
-</p>
+✓
+
+</span>
+
+සම්පූර්ණයෙන්ම නොමිලයේ භාවිතා කළ හැක
+
+</div>
 
 </section>
 
-<!-- =====================
-     APP IMAGE
-===================== -->
+<!-- ======================
+     APP SCREENSHOT
+====================== -->
 
-<section class="phone-wrapper">
+<section class="phone-area">
 
-<div class="floating-card card-one">
-
-📖 Learn Daily
-
-</div>
-
-<div class="floating-card card-two">
-
-⭐ Practice & Improve
-
-</div>
+<div class="phone-glow"></div>
 
 <div class="phone">
 
 <div class="phone-screen">
 
 <!--
-Replace app-screenshot.png
-with your actual app screenshot filename
+Put your app screenshot
+in the same GitHub folder.
+
+Example filename:
+app-screenshot.png
 -->
 
 <img
+
 src="app-screenshot.png"
-alt="O/L Revision App Screenshot"
-onerror="this.style.display='none';document.getElementById('placeholder').style.display='flex';"
+
+alt="OL Revision App Screenshot"
 
 >
-
-<div
-  id="placeholder"
-  class="app-placeholder"
-  style="display:none;"
->
-
-<div class="logo">
-
-O/L
-
-</div>
-
-<h3>
-
-O/L Revision App
-
-</h3>
-
-<p>
-
-Add your app screenshot as
-
-<br>
-
-app-screenshot.png
-
-</p>
-
-</div>
 
 </div>
 
@@ -873,37 +905,45 @@ app-screenshot.png
 
 </div>
 
+<!-- ======================
+     SUBJECTS
+====================== -->
+
+<div class="subjects">
+
+<div class="subjects-title">
+
+ඔබට ඉගෙන ගත හැකි විෂයන්
+
+</div>
+
+<div class="subject-list">
+
+<div class="subject">
+විද්‍යාව
+</div>
+
+<div class="subject">
+ගණිතය
+</div>
+
+<div class="subject">
+සිංහල
+</div>
+
+<div class="subject">
+ඉතිහාසය
+</div>
+
+<div class="subject">
+බුද්ධ ධර්මය
+</div>
+
+</div>
+
+</div>
+
 </main>
-
-<script>
-
-(function(){
-
-const playStoreUrl =
-"https://play.google.com/store/apps/details?id=xyz.appfactory.olmodelpaper";
-
-
-document.body.addEventListener(
-  "click",
-  function(e){
-
-    if(
-      e.target.closest("#storeLink")
-    ){
-      return;
-    }
-
-
-    window.location.href =
-      playStoreUrl;
-
-  }
-);
-
-
-})();
-
-</script>
 
 </body>
 
